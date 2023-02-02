@@ -85,9 +85,9 @@ jobs:
          args: unzip -qq ./buildartifacts/application.zip -d .
 
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/actions/login@v1
         with:
-          creds: ${{secrets.AZURE_WEBAPP_PUBLISH_PROFILE}}  
+          creds: ${{secrets.AZURE_CREDENTIALS}}  
       # Deploy Node app to Azure
       - name: 'Deploy to Azure WebApp'
         id: deploy-to-webapp
