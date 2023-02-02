@@ -86,8 +86,10 @@ jobs:
 
       - name: Login to Azure
         uses: azure/actions/login@v1
+        env:
+          CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS}}  
+          creds: $CREDENTIALS
       # Deploy Node app to Azure
       - name: 'Deploy to Azure WebApp'
         id: deploy-to-webapp
